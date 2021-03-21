@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//òûê ìûøêîé
 public class SelectionHandler : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
 
-    List<Cell> selected = new List<Cell>(); // ïîäñâå÷åíûå êëåòêè
+    List<Cell> selected = new List<Cell>(); 
 
     private Camera mainCamera;
     private void Awake()
