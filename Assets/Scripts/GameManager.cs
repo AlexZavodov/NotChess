@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] CanvasManager canvasManager;
     Settings settings;
 
-    // 0 - äåôîëò, 1, 2 - èãðîêè
     Player[] players = new Player[3] { new Player(), new Player(), new Player() };
 
     Vector2Int size;
@@ -77,7 +76,6 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {   
-        //î÷èùàåì äîñêó
         for (int i = 0; i < size.x; i++)
             for (int j = 0; j < size.y; j++)
             {
@@ -90,7 +88,6 @@ public class GameManager : MonoBehaviour
         players[1].ClearPawns();
         players[2].ClearPawns();
 
-        // ðàññòàâëÿåì 
         Pawn pawn;
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
@@ -110,7 +107,6 @@ public class GameManager : MonoBehaviour
                 winPosition[i, size.y - j - 1] = 1;
             }
 
-        //äà¸ì õîä
         players[1].MyTurn = true;
         players[2].MyTurn = false;
         canvasManager.ChangeTurn(Turn);
@@ -122,7 +118,7 @@ public class GameManager : MonoBehaviour
         List<Cell> cells = new List<Cell>();
         selected = cellPosition;
 
-        if (MovePawn())         // ïåðåäâèãàåì øàøêó
+        if (MovePawn()) 
         {
             ChangeTurn();
         }
@@ -130,7 +126,7 @@ public class GameManager : MonoBehaviour
         possibleMoves.Clear();
         isSelected = false;
 
-        if (SelectedPawn())     // âûáèðàåì øàøêó
+        if (SelectedPawn())
         {
             isSelected = true;
         }
