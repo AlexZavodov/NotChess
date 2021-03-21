@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] CanvasManager canvasManager;
     Settings settings;
 
-    // 0 - дефолт, 1, 2 - игроки
+    // 0 - Г¤ГҐГґГ®Г«ГІ, 1, 2 - ГЁГЈГ°Г®ГЄГЁ
     Player[] players = new Player[3] { new Player(), new Player(), new Player() };
 
     Vector2Int size;
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {   
-        //очищаем доску
+        //Г®Г·ГЁГ№Г ГҐГ¬ Г¤Г®Г±ГЄГі
         for (int i = 0; i < size.x; i++)
             for (int j = 0; j < size.y; j++)
             {
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         players[1].ClearPawns();
         players[2].ClearPawns();
 
-        // расставляем 
+        // Г°Г Г±Г±ГІГ ГўГ«ГїГҐГ¬ 
         Pawn pawn;
         for (int i = 0; i < 3; i++)
             for (int j = 0; j < 3; j++)
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
                 winPosition[i, size.y - j - 1] = 1;
             }
 
-        //даём ход
+        //Г¤Г ВёГ¬ ГµГ®Г¤
         players[1].MyTurn = true;
         players[2].MyTurn = false;
         canvasManager.ChangeTurn(Turn);
@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
         List<Cell> cells = new List<Cell>();
         selected = cellPosition;
 
-        if (MovePawn())         // передвигаем шашку
+        if (MovePawn())         // ГЇГҐГ°ГҐГ¤ГўГЁГЈГ ГҐГ¬ ГёГ ГёГЄГі
         {
             ChangeTurn();
         }
@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
         possibleMoves.Clear();
         isSelected = false;
 
-        if (SelectedPawn())     // выбираем шашку
+        if (SelectedPawn())     // ГўГ»ГЎГЁГ°Г ГҐГ¬ ГёГ ГёГЄГі
         {
             isSelected = true;
         }
@@ -208,12 +208,5 @@ public class GameManager : MonoBehaviour
     public bool IsTurnHuman()
     {
         return players[Turn].IsHuman;
-    }
-
-    public bool IsPawnWinPosition(Pawn pawn)
-    {
-        if (winPosition[pawn.Position.x, pawn.Position.y] == Turn)
-            return true;
-        return false;
     }
 }
