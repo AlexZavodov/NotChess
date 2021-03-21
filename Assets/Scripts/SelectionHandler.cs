@@ -7,7 +7,7 @@ public class SelectionHandler : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
 
-    List<Cell> selected = new List<Cell>(); 
+    List<Cell> selected = new List<Cell>(); // подсвеченые клетки
 
     private Camera mainCamera;
     private void Awake()
