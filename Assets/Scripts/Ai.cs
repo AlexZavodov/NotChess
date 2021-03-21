@@ -33,25 +33,18 @@ public class Ai : MonoBehaviour
 
     private void TurnClick(List<Cell> clicks)
     {
-        if (clicks == null) return;
-
         int rand2 = UnityEngine.Random.Range(0, clicks.Count);
 
         gameManager.ClickOnCell(clicks[rand2].Position);
     }
 
     private List<Cell> SelectClick(List<Pawn> pawns)
-    {        
-        if (pawns == null)
-        {
-            return new List<Cell>();
-        }
-
+    {
         int pawnNum = UnityEngine.Random.Range(0, pawns.Count);
 
         List<Cell> clicks = gameManager.ClickOnCell(pawns[pawnNum].Position);
 
-        if (clicks == null)
+        if (clicks.Count == 0)
         {
             return SelectClick(pawns);
         }
