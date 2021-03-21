@@ -17,12 +17,9 @@ public class SelectionHandler : MonoBehaviour
 
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && gameManager.IsTurnHuman())
-        {
-            DeselectedCell();
-        }
         if (Mouse.current.leftButton.wasReleasedThisFrame && gameManager.IsTurnHuman())
         {   
+            DeselectedCell();
             SelectCell();
         }
     }
