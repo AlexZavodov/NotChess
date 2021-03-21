@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//тык мышкой
+//ГІГ»ГЄ Г¬Г»ГёГЄГ®Г©
 public class SelectionHandler : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
 
-    List<Cell> selected = new List<Cell>(); // подсвеченые клетки
+    List<Cell> selected = new List<Cell>(); // ГЇГ®Г¤Г±ГўГҐГ·ГҐГ­Г»ГҐ ГЄГ«ГҐГІГЄГЁ
 
     private Camera mainCamera;
     private void Awake()
@@ -37,11 +37,10 @@ public class SelectionHandler : MonoBehaviour
 
         selected = gameManager.ClickOnCell(cell.Position);
 
-        if (selected != null && selected.Count > 0)
-            for (int i=0; i<selected.Count; i++)
-            {
-                selected[i].Select();
-            }
+        for (int i=0; i<selected.Count; i++)
+        {
+            selected[i].Select();
+        }
 
     }
 
